@@ -1,0 +1,15 @@
+version: "3"
+
+services: 
+
+  tarantool:
+    image: tarantool/tarantool:2.6.0
+    environment:
+      - TARANTOOL_USER_NAME=ivan
+      - TARANTOOL_USER_PASSWORD=ilovegalko
+    volumes: 
+      - ./volumes/db-data:/var/lib/tarantool
+      - ./volumes/db-code:/opt/tarantool
+    ports:
+      - 3276:3301
+    restart: unless-stopped
